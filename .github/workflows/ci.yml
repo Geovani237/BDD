@@ -1,7 +1,7 @@
 name: Continuous Integration
 on:
   pull_request:  # Aciona para pull requests
-  push:          # Aciona para pushs
+  push: # Aciona para pushs
     branches:
       - '*'  # Isso significa qualquer branch
 jobs:
@@ -15,6 +15,9 @@ jobs:
         with:
           java-version: '21'
           distribution: 'adopt'
+
+      - name: Check Java Version
+        run: java -version # Este comando mostrará a versão no log
       - name: Build and test
         run: mvn clean test #Esse comando vai rodar os testes
   deploy:
